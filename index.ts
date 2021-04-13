@@ -1,7 +1,7 @@
 import * as minimist from "minimist";
-import { ProductsController, ProductsControllerOption } from "./controller";
+import { Controller, ControllerOption } from "./controller";
 
-function parsearArgv(argv): ProductsControllerOption {
+function parsearArgv(argv): ControllerOption {
   const resultado = minimist(argv);
 
   return {
@@ -10,7 +10,7 @@ function parsearArgv(argv): ProductsControllerOption {
   };
 }
 function main() {
-  const controller = new ProductsController();
+  const controller = new Controller();
   const input = parsearArgv(process.argv.slice(2));
   const resultado = controller.processOptions(input);
   console.log(resultado);

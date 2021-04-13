@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as jsonfile from "jsonfile";
 
-class Producto {
+class Objeto {
   id: number;
   name: string;
   price: number;
@@ -12,9 +12,9 @@ class Producto {
   }
 }
 
-class ListaDeProductos {
+class ListaDeObjetos {
   nombreDeLista: string;
-  lista: Producto[] = [];
+  lista: Objeto[] = [];
   constructor(nombreDeLista: string) {
     this.nombreDeLista = nombreDeLista;
     const productosJson = fs
@@ -30,10 +30,10 @@ class ListaDeProductos {
   getAll() {
     return this.lista;
   }
-  getProductById(id: number): Producto {
+  getProductById(id: number): Objeto {
     return this.lista.find((item) => item.id == id);
   }
-  addProduct(producto: Producto) {
+  addProduct(producto: Objeto) {
     this.lista.push(producto);
   }
   save() {
@@ -41,4 +41,4 @@ class ListaDeProductos {
   }
 }
 
-export { Producto, ListaDeProductos };
+export { Objeto, ListaDeObjetos };

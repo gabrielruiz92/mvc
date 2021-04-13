@@ -1,16 +1,16 @@
-import { ListaDeProductos } from "./models";
+import { ListaDeObjetos } from "./models";
 
-export class ProductsControllerOption {
+export class ControllerOption {
   action: "get" | "save";
   params: any;
 }
 
-class ProductsController {
-  productos: ListaDeProductos;
+class Controller {
+  productos: ListaDeObjetos;
   constructor() {
-    this.productos = new ListaDeProductos("Lista");
+    this.productos = new ListaDeObjetos("Lista");
   }
-  processOptions(options: ProductsControllerOption) {
+  processOptions(options: ControllerOption) {
     if (options.action == "get" && options.params.id) {
       return this.productos.getProductById(options.params.id);
     } else if (options.action == "get") {
@@ -21,4 +21,4 @@ class ProductsController {
     }
   }
 }
-export { ProductsController };
+export { Controller };
