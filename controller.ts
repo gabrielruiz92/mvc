@@ -9,6 +9,7 @@ class Controller {
   productos: ListaDeObjetos;
   constructor() {
     this.productos = new ListaDeObjetos("Lista");
+    this.productos.load();
   }
   processOptions(options: ControllerOption) {
     if (options.action == "get" && options.params.id) {

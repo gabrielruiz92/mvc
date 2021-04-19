@@ -17,16 +17,12 @@ class ListaDeObjetos {
   lista: Objeto[] = [];
   constructor(nombreDeLista: string) {
     this.nombreDeLista = nombreDeLista;
-    const productosJson = fs
-      .readFileSync(__dirname + "/productos.json")
-      .toString();
-
-    const productosJsonParse = JSON.parse(productosJson);
-
-    productosJsonParse.forEach((item) => {
-      this.lista.push(item);
-    });
   }
+  load() {
+    const json = jsonfile.readFileSync("./productos.json");
+    this.lista = json;
+  }
+
   getAll() {
     return this.lista;
   }
