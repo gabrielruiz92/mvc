@@ -11,8 +11,10 @@ function parsearArgv(argv): ControllerOption {
 }
 function main() {
   const controller = new Controller();
-  const input = parsearArgv(process.argv.slice(2));
-  const resultado = controller.processOptions(input);
-  console.log(resultado);
+  controller.promesa.then(() => {
+    const input = parsearArgv(process.argv.slice(2));
+    const resultado = controller.processOptions(input);
+    console.log(resultado);
+  });
 }
 main();

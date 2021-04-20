@@ -19,8 +19,11 @@ class ListaDeObjetos {
     this.nombreDeLista = nombreDeLista;
   }
   load() {
-    const json = jsonfile.readFileSync("./productos.json");
-    this.lista = json;
+    const promesa = jsonfile.readFile("./productos.json");
+    promesa.then((json) => {
+      this.lista = json;
+    });
+    return promesa;
   }
 
   getAll() {
